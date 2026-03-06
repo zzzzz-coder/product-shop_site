@@ -17,7 +17,7 @@
 - docker compose up --build
 - docker exec -it laravel_app php artisan key:generate
 - docker exec -it laravel_app php artisan migrate:fresh --seed
-- open http://localhost:8000
+- Открыть http://localhost:8000
 
 ---
 
