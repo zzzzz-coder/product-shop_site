@@ -18,3 +18,9 @@
 - docker exec -it laravel_app php artisan key:generate
 - docker exec -it laravel_app php artisan migrate:fresh --seed
 - open http://localhost:8000
+
+---
+
+# Unit test
+
+- php artisan test
