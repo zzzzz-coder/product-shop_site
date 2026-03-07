@@ -10,7 +10,7 @@
 
 <h2>Товары</h2>
 
-<table class="table table-bordered">
+<table class="products-table table table-bordered">
 <tr>
     <th>
         @php
@@ -76,4 +76,18 @@
 </table>
 
 {{ $products->appends(request()->query())->links() }}
+<form method="GET">
+
+    <input type="hidden" name="sort" value="{{ request('sort') }}">
+    <input type="hidden" name="direction" value="{{ request('direction') }}">
+
+    <label>Товаров на странице:</label>
+
+    <select name="per_page" onchange="this.form.submit()">
+        <option value="6" {{ $perPage == 6 ? 'selected' : '' }}>6</option>
+        <option value="12" {{ $perPage == 12 ? 'selected' : '' }}>12</option>
+        <option value="18" {{ $perPage == 18 ? 'selected' : '' }}>18</option>
+    </select>
+
+</form>
 @endsection

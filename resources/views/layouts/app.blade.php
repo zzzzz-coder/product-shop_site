@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Каталог</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         .group-menu a { color: blue; text-decoration: none; }
         .group-menu a.active { color: green; font-weight: bold; }

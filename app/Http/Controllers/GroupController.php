@@ -27,7 +27,13 @@ class GroupController extends Controller
 
         $query = $sortService->apply($query, $sort, $direction);
 
-        $products = $query->paginate(20);
+        $perPage = $request->get('per_page', 6);
+
+        if (!in_array($perPage, [6,12,18])) {
+            $perPage = 6;
+        }
+
+        $products = $query->paginate($perPage)->withQueryString();
 
         return view('group', [
             'group' => $group,

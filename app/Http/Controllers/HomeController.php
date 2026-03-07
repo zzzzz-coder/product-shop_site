@@ -15,10 +15,16 @@ class HomeController extends Controller
 
         $groups = Group::where('id_parent', 0)->get();
 
+        $perPage = $request->get('per_page', 6);
+
+        if (!in_array($perPage, [6,12,18])) {
+            $perPage = 6;
+        }
+
         $products = Product::join('prices','products.id','=','prices.id_product')
             ->orderBy($sort === 'name' ? 'products.name' : 'prices.price', $direction)
             ->select('products.*')
-            ->paginate(10)
+            ->paginate($perPage)
             ->withQueryString();
 
         return view('home', compact('groups','products','sort','direction'));

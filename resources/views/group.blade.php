@@ -19,7 +19,7 @@
 
 <h2>{{ $group->name }}</h2>
 
-<table class="table table-striped">
+<table class="products-table table table-striped">
 <tr>
     <th>
         @php
